@@ -146,12 +146,43 @@ clearly when Gmail isn't set up yet.
 
 ---
 
-## Putting it on the real internet
+## The live website
 
-Right now the site runs on your own computer only — `localhost` means "this
-machine". Nobody else can reach it.
+The site is hosted free on **Vercel**, and its code lives on GitHub at
+**https://github.com/twhite42-pixel/wild-dandelions**
 
-Because the contact form needs Python, free static hosting like GitHub Pages
-won't work. You need a host that runs Python: **PythonAnywhere**, **Render**
-and **Railway** all have free tiers that do. That's a separate job from
-building the site, and it's worth doing once the words and prices are final.
+### Publishing a change
+
+Edit a file, then from this folder:
+
+```
+git add -A
+git commit -m "Say what you changed"
+git push
+```
+
+Vercel notices the push and puts the new version live in about a minute.
+That's the whole process - no uploading, no dragging files anywhere.
+
+This is how you'd change a price, add a piece, or rewrite your About
+paragraphs once the site is public.
+
+### Your Gmail password on the live site
+
+The `.env` file never leaves your computer, so the live site needs to be told
+the app password separately. Once, in Vercel:
+
+1. Go to your project on **vercel.com**
+2. **Settings** -> **Environment Variables**
+3. Add `GMAIL_ADDRESS` = `toriewhite9@gmail.com`
+4. Add `GMAIL_APP_PASSWORD` = your 16 letters
+5. **Deployments** -> the top one -> **Redeploy**
+
+Until you do, the live form tells people to email you directly instead.
+
+### A custom domain
+
+A name like `wilddandelions.com` costs around $12 a year from a registrar -
+Vercel itself sells them, as do Namecheap and Cloudflare. Pointing it at the
+site is free: **Settings** -> **Domains** -> type the name. Vercel walks you
+through the rest.

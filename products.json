@@ -1,0 +1,87 @@
+{
+  "_README": "This is your shop. Edit the list below and refresh the page - no code needed. 'price' is just text, so '$24' or '$24 - $30' or 'Made to order' all work. Leave 'etsy_url' as \"\" and the button says 'Email me about these' and takes people to your contact form. Put a real link in and it turns into 'Buy on Etsy' by itself. Set 'sold_out' to true to show a Sold Out ribbon. To hide a piece entirely, delete its block.",
+
+  "products": [
+    {
+      "id": "sunset-marble",
+      "name": "Sunset Marble",
+      "price": "$24",
+      "blurb": "Hand-marbled clay, swirled red and sky blue. No two are ever the same.",
+      "image": "sunset-marble.jpg",
+      "etsy_url": "",
+      "sold_out": false
+    },
+    {
+      "id": "beach-day-bar",
+      "name": "Beach Day",
+      "price": "$18",
+      "blurb": "Turquoise, deep green and hot pink seed beads, stacked in a little column.",
+      "image": "beach-day-bar.jpg",
+      "etsy_url": "",
+      "sold_out": false
+    },
+    {
+      "id": "forget-me-not",
+      "name": "Forget Me Not",
+      "price": "$22",
+      "blurb": "Speckled seafoam petals around a bright red centre. Soft and a little wild.",
+      "image": "forget-me-not.jpg",
+      "etsy_url": "",
+      "sold_out": false
+    },
+    {
+      "id": "sea-glass-shell",
+      "name": "Sea Glass Shell",
+      "price": "$26",
+      "blurb": "A real shell, hand painted green and sealed to a pearly shine.",
+      "image": "sea-glass-shell.jpg",
+      "etsy_url": "",
+      "sold_out": false
+    },
+    {
+      "id": "coral-swirl",
+      "name": "Coral Swirl",
+      "price": "$22",
+      "blurb": "Clay coiled into a spiral, in every shade of sunset orange.",
+      "image": "coral-swirl.jpg",
+      "etsy_url": "",
+      "sold_out": false
+    },
+    {
+      "id": "orange-blossom",
+      "name": "Orange Blossom",
+      "price": "$20",
+      "blurb": "A carved cream flower above two glossy orange beads. Sweet, not fussy.",
+      "image": "orange-blossom.jpg",
+      "etsy_url": "",
+      "sold_out": false
+    },
+    {
+      "id": "wildflower-drop",
+      "name": "Wildflower Drop",
+      "price": "$20",
+      "blurb": "Orange, red and periwinkle beads with tiny turquoise spacers between.",
+      "image": "wildflower-drop.jpg",
+      "etsy_url": "",
+      "sold_out": false
+    },
+    {
+      "id": "cherry-blossom",
+      "name": "Cherry Blossom",
+      "price": "$22",
+      "blurb": "Blush petals, a red heart, on a gold stud. The everyday pair.",
+      "image": "cherry-blossom.jpg",
+      "etsy_url": "",
+      "sold_out": false
+    },
+    {
+      "id": "blush-chain",
+      "name": "Blush Chain",
+      "price": "$24",
+      "blurb": "Two chunky hand-rolled links in soft pink. Bigger than they look.",
+      "image": "blush-chain.jpg",
+      "etsy_url": "",
+      "sold_out": false
+    }
+  ]
+}

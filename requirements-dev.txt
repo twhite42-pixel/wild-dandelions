@@ -1,0 +1,9 @@
+# Extras for working on the site, not for running it.
+#   ./.venv/bin/pip install -r requirements-dev.txt
+-r requirements.txt
+
+pytest==9.1.1
+
+# Only for tools/make_hero_cutouts.py
+pillow
+numpy

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wild Dandelions - handmade earrings by Torie White</title>
+<meta name="description" content="Handmade clay and beaded earrings, made one pair at a time by Torie White. No two are ever the same.">
+
+<link rel="icon" href="{{ url_for('static', filename='img/logo-transparent.png') }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,300;8..144,400;8..144,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+<a class="skip-link" href="#shop">Skip to the earrings</a>
+
+<nav class="nav">
+  <a class="nav__home" href="#top">Wild Dandelions</a>
+  <div class="nav__links">
+    <a href="#shop">The pieces</a>
+    <a href="#about">About</a>
+    <a href="#write">Write to me</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="dangles" aria-hidden="true">
+    <span class="dangle dangle--a"><img src="{{ url_for('static', filename='img/hero/sunset-marble.png') }}" alt=""></span>
+    <span class="dangle dangle--b"><img src="{{ url_for('static', filename='img/hero/beach-day-bar.png') }}" alt=""></span>
+    <span class="dangle dangle--c"><img src="{{ url_for('static', filename='img/hero/coral-swirl.png') }}" alt=""></span>
+    <span class="dangle dangle--d"><img src="{{ url_for('static', filename='img/hero/forget-me-not.png') }}" alt=""></span>
+  </div>
+
+  <div class="wrap">
+    <h1 class="hero__logo">
+      <img src="{{ url_for('static', filename='img/logo-transparent.png') }}"
+           alt="Wild Dandelions, by Torie White" width="900" height="255">
+    </h1>
+    <p class="hero__line">Earrings made one pair at a time, by hand. No two are ever the same.</p>
+    <a class="btn" href="#shop">See the pieces</a>
+    <p class="hero__made">Made by humans, for humans.</p>
+  </div>
+</header>
+
+<main>
+
+<section class="band shop" id="shop">
+  <div class="wrap">
+    <h2 class="visually-hidden" hidden>Hand made earrings</h2>
+    <img class="shop__heading" src="{{ url_for('static', filename='img/handmade-earrings.png') }}"
+         alt="Hand made earrings" width="430" height="66">
+    <p class="shop__note">Clay rolled, beads strung, shells painted. Because every pair is
+      made by hand, yours will be a little different from its photo.</p>
+
+    {% if products %}
+    {% set tilts = ['-1.6deg', '1.2deg', '-0.8deg', '1.7deg', '-1.3deg', '0.9deg', '-1.9deg', '1.4deg', '-1deg'] %}
+    <ul class="pieces">
+      {% for product in products %}
+      <li class="piece" style="--tilt: {{ tilts[loop.index0 % tilts|length] }}">
+        <button type="button"
+                class="piece__photo"
+                data-piece="{{ product.name }}"
+                data-price="{{ product.price }}"
+                data-image="{{ url_for('static', filename='img/products/' ~ product.image) }}"
+                aria-label="See {{ product.name }} larger">
+          <img src="{{ url_for('static', filename='img/products/' ~ product.image) }}"
+               alt="{{ product.name }} earrings. {{ product.blurb }}"
+               loading="lazy" width="1100" height="1467">
+        </button>
+
+        {% if product.sold_out %}<span class="piece__sold">Sold out</span>{% endif %}
+
+        <h3 class="piece__name">{{ product.name }}</h3>
+        <p class="piece__price">{{ product.price }}</p>
+        <p class="piece__blurb">{{ product.blurb }}</p>
+
+        {% if product.sold_out %}
+          <button class="btn btn--quiet piece__cta" type="button"
+                  data-ask-about="{{ product.name }}">Ask for another pair</button>
+        {% elif product.etsy_url %}
+          <a class="btn piece__cta" href="{{ product.etsy_url }}"
+             target="_blank" rel="noopener">Buy on Etsy</a>
+        {% else %}
+          <button class="btn btn--quiet piece__cta" type="button"
+                  data-ask-about="{{ product.name }}">Email me about these</button>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>The shop is being restocked. Write to me below and I will tell you the moment
+      new pairs go up.</p>
+    {% endif %}
+  </div>
+</section>
+
+<!-- TORIE: rewrite the two paragraphs below in your own words. -->
+<section class="band about" id="about">
+  <div class="wrap about__grid">
+    <div>
+      <h2>Hi, I'm Torie.</h2>
+      <p>I make earrings at my kitchen table. Rolling clay, stringing beads, painting
+        shells I picked up off the beach. I started because I wanted to wear something
+        nobody else had.</p>
+      <p>Every pair is cut, shaped and finished by hand, so small differences are not
+        mistakes. They are the proof a person made it. No templates, no factory, and
+        nothing here was made by a machine pretending to be me.</p>
+    </div>
+
+    <figure class="about__portrait">
+      <img src="{{ url_for('static', filename='img/products/cherry-blossom.jpg') }}"
+           alt="A pair of blush pink clay flower earrings resting on a white surface"
+           loading="lazy" width="500" height="500">
+      <figcaption>Made at my kitchen table.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="band custom" id="custom">
+  <div class="wrap custom__grid">
+    <div>
+      <h2>Want something made just for you?</h2>
+      <p>Tell me the colours, the occasion, or the outfit you are trying to match,
+        and I will make it. Custom pairs take about two weeks.</p>
+      <a class="btn" href="#write">Start a custom order</a>
+    </div>
+
+    <ul class="custom__list">
+      <li>A pair in your colours, for a birthday or a bridesmaid</li>
+      <li>A painting or print, made to the size you need</li>
+      <li>Something to match an outfit you already love</li>
+      <li>A set of pairs for a girls' night</li>
+    </ul>
+  </div>
+</section>
+
+<section class="band contact" id="write">
+  <div class="wrap contact__grid">
+    <div>
+      <h2>Write to me.</h2>
+      <p class="contact__intro">Custom orders, commissions, stocking Wild Dandelions in
+        your shop, or just saying hello. It comes straight to my inbox and I answer
+        every one.</p>
+      <p class="contact__direct">Would rather use your own email?
+        <a href="mailto:toriewhite9@gmail.com">toriewhite9@gmail.com</a></p>
+    </div>
+
+    <form class="form" id="enquiry-form" novalidate>
+      <div class="form__row">
+        <div class="field">
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="email">Your email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="reason">What are you after?</label>
+        <select id="reason" name="reason">
+          <option value="custom">A custom pair of earrings</option>
+          <option value="commission">A painting or print</option>
+          <option value="stockist">To stock Wild Dandelions in my shop</option>
+          <option value="hello">Just saying hi</option>
+        </select>
+      </div>
+
+      <p class="form__about-piece" id="about-piece">
+        <span>About <strong id="about-piece-name"></strong></span>
+        <button type="button" id="clear-piece">Remove</button>
+      </p>
+
+      <div class="field">
+        <label for="message">Your message</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+
+      <div class="field field--trap" aria-hidden="true">
+        <label for="website">Leave this empty</label>
+        <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <input type="hidden" id="piece" name="piece" value="">
+
+      <button class="btn btn--light form__submit" type="submit" id="submit">Send it</button>
+      <p class="form__status" id="status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <a class="footer__handle" href="https://instagram.com/wilddandelions_tw"
+     target="_blank" rel="noopener">
+    <img src="{{ url_for('static', filename='img/instagram-handle.png') }}"
+         alt="Follow @wilddandelions_tw on Instagram" width="230" height="31">
+  </a>
+  <p class="footer__fine">Wild Dandelions, by Torie White. Everything here is made by hand.</p>
+</footer>
+
+<dialog class="lightbox" id="lightbox">
+  <button class="lightbox__close" id="lightbox-close" type="button">Close</button>
+  <div class="lightbox__inner">
+    <img id="lightbox-image" src="" alt="">
+    <p class="lightbox__caption" id="lightbox-caption"></p>
+    <p class="lightbox__price" id="lightbox-price"></p>
+  </div>
+</dialog>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

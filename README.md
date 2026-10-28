@@ -52,6 +52,18 @@ Google won't let a program use your normal password, so you create a separate
 
 8. Stop the website and start it again.
 
+### The quick way
+
+Instead of steps 6 to 8, run this once you have the 16 letters:
+
+```
+./.venv/bin/python tools/check_email.py
+```
+
+It asks for the password without showing it on screen, writes `.env` for you,
+and then **sends you a real test email** so you know it works. If Gmail
+refuses the password it tells you why and saves nothing.
+
 Now the form sends to **toriewhite9@gmail.com**. Replies go straight back to
 whoever wrote in, so you can just hit Reply.
 
